@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title>Калькулятор</title>
+		<meta charset="utf-8" />
+		
+		<style>
+			input, button{
+				margin: 6px;
+			}
+			button{
+				width: 80px;
+			}
+		</style>
+		<script>
+			function plus() {
+				var x, y, z;
+
+				document.getElementById("num3").value="Ждите.."; //перед выдачей результата в строке будет надпись "Ждите"
+				x = parseInt(document.getElementById("num1").value);
+				y = parseInt(document.getElementById("num2").value);
+				
+				var url = "api/plus.php?num1=" + x + "&num2=" + y;
+				var xhr = new XMLHttpRequest(); // xhr (xml http request)
+				xhr.open("GET", url); //формирование запроса, параметр "false" отключает асинхронный вызов
+				
+				/*function echo (wait) {
+						return document.write (wait);
+					}
+					echo ("Ждите..");*/
+					
+				xhr.onload = function () {
+					
+					
+					z = xhr.responseText; //responseText - это то, что ответил сервер
+					document.getElementById("num3").value = z;
+					
+
+				
+				}
+				
+				xhr.send(); // отсылка данных на сервер и ожидание результата
+			}
+			/*начиная с "var url" и до "z = xhr..." дает возможность странице посылать запросы к веб сервису (plus.php) и 
+			отображать ответы от этого сервиса. Это называется AJAX-запрос. Благодаря ему обновляется не вся страница, а лишь
+			её часть. AJAX (Asynchronous (асинхронный) Javascript and XML)
+			Синхронное программирование - программа остановилась и ждет, пока запрос закончится, то есть следующая строчка программы
+			ждет, пока закончится предыдущая
+			JSON (JavaScript Object Notation)*/
+			
+			/*function minus() {
+			var x, y, z;
+			x = parseInt(document.getElementById("num1").value);
+			y = parseInt(document.getElementById("num2").value);
+			z = x - y;
+			document.getElementById("num3").value = z;
+			}*/
+		</script>
+	</head>
+	<body>
+		<a href="index1.html">Домашняя страница</a>
+		<h1>Калькулятор, использующий Web API</h1>
+		<input type="text" id="num1" /> <br/> 
+		<input type="text" id="num2" /> <br/>
+		<button onclick="plus();">+</button>
+		<button onclick="minus();">-</button> <br/>
+		<input type="text" id="num3"/> <br/>
+        <textarea></textarea>
+	</body>
+</html>

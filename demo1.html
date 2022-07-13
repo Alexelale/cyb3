@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>Demo1</title>
+		<meta charset="utf-8"/>
+		<style> /*начало css-кода*/
+			h1{
+			/*комментарий в css*/
+			color: #666666;
+			background-color: silver;
+			}
+		</style> <!--конец css-кода-->
+		<script>
+			function sayHello() {
+				//comment in javascript
+				//alert("Hello, world!"); 
+				document.getElementById("hdr1").innerText = "Hello, world!";
+				document.getElementById("hdr1").style.color = "red";
+				document.getElementById("hdr1").style.background = "yellow";
+				document.getElementById("pic").style.display = "none";
+			}
+			function atHomeClick() {
+				document.getElementById("hdr2").innerText = "I am at home";
+			}
+			function atHomeMouseOver() {
+				document.getElementById("hdr2").innerText = "I am at home again";
+			}
+			function atHomeMouseOut() {
+				document.getElementById("hdr2").innerText = "Section 2";
+			}
+		</script>
+	</head>
+		
+	<body>
+		<a href="index1.html">Домашняя страница</a>
+		<h1 id="hdr1">Just Demo</h1>  <!--Просто текст определенного размера-->
+		<button onclick="sayHello();">Click me</button>
+		<p>random text 1</p>  <!--абзац-->
+		<p>random <br /> <!--br-это перевод строки-->
+		text 2</p>
+		<h1 id="hdr2">Section 2</h1>
+		<img src="images/pic2.jpg" style="width: 400px" id="pic" onclick="atHomeClick();" onmouseover="atHomeMouseOver();" onmouseout="atHomeMouseOut();" />
+		<p>
+		<a href="https://microsoft.com">Link to the microsoft</a> <br />
+		<table border="1"; style="width: 50%"> <!--атрибут border задает линии разделения элементов таблицы-->
+			<tr> <!--table row - ряды таблицы-->
+				<td>table text</td> <!--table data-->
+				<td>table text 2</td>
+				<td>table text 3</td>
+			</tr>
+			<tr> 
+				<td>table text</td> 
+				<td>table text 2</td>
+				<td>table text 3</td>
+			</tr>
+			<tr> 
+				<td>table text</td> 
+				<td>table text 2</td>
+				<td>table text 3</td>
+			</tr>
+		</table> <!--получилась таблица с 3 строками и 3 колонками-->
+		</p>
+		
+	</body>
+</html>
